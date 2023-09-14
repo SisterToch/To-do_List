@@ -45,23 +45,28 @@ except FileNotFoundError:
     tasks = []
 
 """create the application window"""
-app = tk.Tk()
-app.title("To-Do List")
+window = tk.Tk()
+window.title("My To-Do List")
 
 """ Create and configure widgets"""
-task_label = tk.Label(app, text="Enter task:")
+task_label = tk.Label(window, text="Enter new task:")
 """creates a label widget('tk.Label') with the text "enter task"""
 task_label.pack(pady=5)
 """places the task_label in the GUI,with vertical padding 5pixels below the label"""
-task_entry = tk.Entry(app, width=40)
+
+task_entry = tk.Entry(window, width=40)
 task_entry.pack(pady=5)
-add_button = tk.Button(app, text="Add Task", command=add_task)
-add_button.pack()
-remove_button = tk.Button(app, text="Remove Task", command=remove_task)
-remove_button.pack()
-task_listbox = tk.Listbox(app, selectmode=tk.SINGLE, width=40, height=10)
+
+add_button = tk.Button(window, text="Add Task", command=add_task)
+add_button.pack(pady=5)
+
+remove_button = tk.Button(window, text="Remove Task", command=remove_task)
+remove_button.pack(pady=5)
+
+task_listbox = tk.Listbox(window, selectmode=tk.SINGLE, width=40, height=10)
 task_listbox.pack(pady=10)
+
 update_task_list()
 
 """start the GUI loop"""
-app.mainloop()
+window.mainloop()
