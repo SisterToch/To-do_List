@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.ttk as ttk
 from logic_pickle import load_tasks, save_tasks, add_task, remove_task
 """we have imported the important files for incorporating the gui"""
 
@@ -47,8 +48,17 @@ task_button.pack(pady=5)
 task_button = tk.Button(window, text="Delete Task", command=remove_task_gui)
 task_button.pack(pady=5)
 
-task_listbox = tk.Listbox(window, selectmode=tk.SINGLE, width=40, height=17)
+"""the table like interface"""
+task_listbox = ttk.Treeview(window, columns=("Task #", "Task", "Comment", "Due Date", "Completed"), show="headings")
+task_listbox.heading("Task #", text="Task #")
+task_listbox.heading("Task", text="Task")
+task_listbox.heading("Comment", text="Comment")
+task_listbox.heading("Due Date", text="Due Date")
+task_listbox.heading("Completed", text="Completed")
 task_listbox.pack(pady=17)
+
+style = ttk.Style()
+style.layout("Treeview", [('Treeview.treearea', {'sticky': 'nswe'})])
 
 update_task_list
 window.mainloop()
