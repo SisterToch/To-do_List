@@ -14,7 +14,7 @@ def add_task():
         """append to tasks"""
         update_task_list()
         """to refresh the tasklist"""
-        task_entry.delete(0, tk.End)
+        task_entry.delete(0, tk.END)
         """delete all the text from 0 to end of text"""
         save_tasks()
 
@@ -30,7 +30,7 @@ def update_task_list():
     task_listbox.delete(0, tk.END)
     """this clears the existing tasks in the list box"""
     for task in tasks:
-        task_listbox.insert(tk.End, task)
+        task_listbox.insert(tk.END, task)
         """inserts the new task into the taskslistbox at the end of the list"""
 
 
